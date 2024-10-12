@@ -1,5 +1,4 @@
 ﻿using BuildingBlocks.CQRS;
-using MediatR;
 
 namespace CatalogAPI.Models.Products.CreateProduct
 {

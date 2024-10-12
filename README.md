@@ -13,3 +13,16 @@
 ## BuildingBlock
 
 ** 1. Manage NuGet packages version control **
+
+## Rest API Endpoints
+
+### Catalog Microservices
+
+ Method             | Request URI                   | User Cases                  |
+| ----------------  | ----------------------------- | --------------------------  |
+| GET               | /products                     | List all products           |
+| GET               | /products/{id}                | Fetcha specific product     |
+| GET               | /products//category           | Get products by catagory    |
+| POST              | /products/                    | Create a new product        |
+| PUT               | /products/{id}                | Update a product            |
+| DELETE            | /products/{id}                | Remove a product            |
