@@ -26,3 +26,18 @@
 | POST              | /products/                    | Create a new product        |
 | PUT               | /products/{id}                | Update a product            |
 | DELETE            | /products/{id}                | Remove a product            |
+
+
+## Run With Docker
+
+1. Run docker with docker compose btn
+
+2. Open command line
+
+3. Type "docker ps" to check current running container
+
+4. Type "docker exec -it <container id> bash" to enter postgres
+
+5. "\l" to list db and "\c <database name>" to connect database
+
+6. "\d" to check tables
