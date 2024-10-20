@@ -2,7 +2,7 @@
 namespace CatalogAPI.Models.Products.GetProductById
 {
     public record GetProductByIdQuery(Guid Id) : IQuery<GetProductByIdResult>;
-    public record GetProductByIdResult(Product product);
+    public record GetProductByIdResult(Product Product);
     internal class GetProductByIdQueryHandler
         : IQueryHandler<GetProductByIdQuery, GetProductByIdResult>
     {
