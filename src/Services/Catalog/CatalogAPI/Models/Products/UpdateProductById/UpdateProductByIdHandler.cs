@@ -9,7 +9,7 @@ namespace CatalogAPI.Models.Products.UpdateProductById
     {
         private readonly IDocumentSession _session;
         private readonly ILogger _logger;
-        public UpdateProductByIdCommandHandler(IDocumentSession session, ILogger logger)
+        public UpdateProductByIdCommandHandler(IDocumentSession session, ILogger<UpdateProductByIdCommandHandler> logger)
         {
             _session = session;
             _logger = logger;

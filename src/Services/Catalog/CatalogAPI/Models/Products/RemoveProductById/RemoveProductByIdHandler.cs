@@ -9,7 +9,7 @@ namespace CatalogAPI.Models.Products.RemoveProductById
         private readonly IDocumentSession _session;
         private readonly ILogger _logger;
 
-        public RemoveProductByIdCommandHandler(IDocumentSession session, ILogger logger) 
+        public RemoveProductByIdCommandHandler(IDocumentSession session, ILogger<RemoveProductByIdCommandHandler> logger) 
         {
             _session = session;
             _logger = logger;

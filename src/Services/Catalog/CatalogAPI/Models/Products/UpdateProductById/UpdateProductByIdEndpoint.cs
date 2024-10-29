@@ -12,7 +12,7 @@ namespace CatalogAPI.Models.Products.UpdateProductById
             app.MapPut("/products", async (UpdateProductByIdRequest request, ISender sender ) => 
             {
                 var command = request.Adapt<UpdateProductByIdCommand>();
-                var result = await sender.Send(request);
+                var result = await sender.Send(command);
                 var response = result.Adapt<UpdateProductByIdResponse>();
                 return Results.Ok(response);
             })
@@ -21,7 +21,7 @@ namespace CatalogAPI.Models.Products.UpdateProductById
                 .ProducesProblem(StatusCodes.Status400BadRequest)
                 .ProducesProblem(StatusCodes.Status404NotFound)
                 .WithSummary("Update Product by Id")
-                .WithDescription("Update Product By Id"); ;
+                .WithDescription("Update Product By Id");
 
         }
     }

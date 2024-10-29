@@ -4,12 +4,12 @@ using CatalogAPI.Models.Products.UpdateProductById;
 namespace CatalogAPI.Models.Products.RemoveProductById
 {
     //public record RemoveProductByIdRequest(Guid id);
-    public record RemoveProductByIdResponse(bool IsSussess);
+    public record RemoveProductByIdResponse(bool IsSuccess);
     public class RemoveProductByIdEndpoint : ICarterModule
     {
         public void AddRoutes(IEndpointRouteBuilder app)
         {
-            app.MapPut("products/{id}", async (Guid id, ISender sender) => 
+            app.MapDelete("products/{id}", async (Guid id, ISender sender) => 
             {
                 var result = await sender.Send(new RemoveProductByIdCommand(id));
                 var response = result.Adapt<RemoveProductByIdResponse>();
