@@ -8,33 +8,30 @@ namespace CatalogAPI.Models.Products.CreateProduct
 
     public class CreateProductCommandValidator : AbstractValidator<CreateProductCommand>
     {
-        public CreateProductCommandValidator() 
+        public CreateProductCommandValidator()
         {
             RuleFor(x => x.Name).NotEmpty().WithMessage("Name is required");
             RuleFor(x => x.Category).NotEmpty().WithMessage("Category is required");
             RuleFor(x => x.ImageFile).NotEmpty().WithMessage("ImageFile is required");
             RuleFor(x => x.Price).GreaterThan(0).WithMessage("Price must be greater than 0");
         }
+    }
     internal class CreateproductCommandHandler 
         : ICommandHandler<CreateProductCommand, CreateProductResult>
     {
         private readonly IDocumentSession _session;
-            private readonly IValidator<CreateProductCommand> _validator;
+        private readonly ILogger _logger;    
 
         // Constructor to inject the session
-        public CreateproductCommandHandler(IDocumentSession session, IValidator<CreateProductCommand> validator)
+        public CreateproductCommandHandler(IDocumentSession session, ILogger<CreateproductCommandHandler> logger)
         {
             _session = session;
-            _validator = validator;
+            _logger = logger;
+           
         }
         public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
         {
-            var result = await _validator.ValidateAsync(command, cancellationToken);
-            var errors = result.Errors.Select(e => e.ErrorMessage).ToList();
-            if (errors.Any()) 
-            {
-                    throw new ValidationException(errors.FirstOrDefault());
-            }
+            _logger.LogInformation("CreateProductCommandHandler.Handler called with {@Command}", command);
 
             //Create Product entity
             var product = new Product

@@ -3,6 +3,13 @@ namespace CatalogAPI.Models.Products.RemoveProductById
 {
     public record RemoveProductByIdCommand(Guid Id) : ICommand<RemoveProductByIdCommandResult>;
     public record RemoveProductByIdCommandResult(bool IsSuccess);
+    public class RemoveProductByIdCommandValidator : AbstractValidator<RemoveProductByIdCommand> 
+    {
+        public RemoveProductByIdCommandValidator() 
+        {
+            RuleFor(command => command.Id).NotEmpty().WithMessage("Product Id is required");
+        }
+    }
     internal class RemoveProductByIdCommandHandler :
         ICommandHandler<RemoveProductByIdCommand, RemoveProductByIdCommandResult>
     {
