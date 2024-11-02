@@ -25,7 +25,7 @@ namespace CatalogAPI.Models.Products.GetProductByCategory
 
             if (products is null) 
             {
-                throw new ProductNotFoundException();
+                throw new ProductNotFoundException(query.Category);
             }
             return new GetProductByCategoryResult(products);
         }
