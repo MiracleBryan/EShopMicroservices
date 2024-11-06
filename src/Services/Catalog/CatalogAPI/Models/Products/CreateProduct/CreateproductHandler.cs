@@ -19,19 +19,17 @@ namespace CatalogAPI.Models.Products.CreateProduct
     internal class CreateproductCommandHandler 
         : ICommandHandler<CreateProductCommand, CreateProductResult>
     {
-        private readonly IDocumentSession _session;
-        private readonly ILogger _logger;    
+        private readonly IDocumentSession _session; 
 
         // Constructor to inject the session
-        public CreateproductCommandHandler(IDocumentSession session, ILogger<CreateproductCommandHandler> logger)
+        public CreateproductCommandHandler(IDocumentSession session)
         {
             _session = session;
-            _logger = logger;
+
            
         }
         public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
         {
-            _logger.LogInformation("CreateProductCommandHandler.Handler called with {@Command}", command);
 
             //Create Product entity
             var product = new Product

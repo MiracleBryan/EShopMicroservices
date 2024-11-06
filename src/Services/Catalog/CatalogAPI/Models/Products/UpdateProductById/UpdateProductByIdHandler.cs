@@ -21,15 +21,12 @@ namespace CatalogAPI.Models.Products.UpdateProductById
         : ICommandHandler<UpdateProductByIdCommand, UpdateProductByIdResult>
     {
         private readonly IDocumentSession _session;
-        private readonly ILogger _logger;
         public UpdateProductByIdCommandHandler(IDocumentSession session, ILogger<UpdateProductByIdCommandHandler> logger)
         {
             _session = session;
-            _logger = logger;
         }
         public async Task<UpdateProductByIdResult> Handle(UpdateProductByIdCommand command, CancellationToken cancellationToken)
         {
-            _logger.LogInformation("UpdateProductByIdCommandHandler.Handle called with {@Command}", command);
 
             var product = await _session.LoadAsync<Product>(command.Id, cancellationToken);
 
