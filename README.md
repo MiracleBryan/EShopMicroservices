@@ -3,20 +3,20 @@
 
 ## Port number for each microservices
 
-** http - https **
+Http - Https
 
  Microservices      | Local Env                     | Docker Env                  | Docker Inside               |
-| ----------------  | ----------------------------- | --------------------------  |
+| ----------------  | ----------------------------- | --------------------------  |	--------------------------	|
 | Catalog           | 5000 - 5050                   | 6000 - 6060                 | 8000 - 8081                 |
 
 
 ## BuildingBlock
 
-** 1. Manage NuGet packages version control **
+1. Manage NuGet packages version control
 
 ## Rest API Endpoints
 
-### Catalog Microservices
+#### 1.Catalog Microservices
 
  Method             | Request URI                   | User Cases                  |
 | ----------------  | ----------------------------- | --------------------------  |
