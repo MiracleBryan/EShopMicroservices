@@ -8,11 +8,14 @@ Http - Https
  Microservices      | Local Env                     | Docker Env                  | Docker Inside               |
 | ----------------  | ----------------------------- | --------------------------  |	--------------------------	|
 | Catalog           | 5000 - 5050                   | 6000 - 6060                 | 8000 - 8081                 |
+| Basket            | 5001 - 5051                   | 6001 - 6061                 | 8000 - 8081                 |
+
 
 
 ## BuildingBlock
 
 1. Manage NuGet packages version control
+
 
 ## Rest API Endpoints
 
@@ -26,6 +29,16 @@ Http - Https
 | POST              | /products/                    | Create a new product        |
 | PUT               | /products/{id}                | Update a product            |
 | DELETE            | /products/{id}                | Remove a product            |
+
+
+#### 2.Basket Microservices
+
+ Method             | Request URI                   | User Cases                    |
+| ----------------  | ----------------------------- | --------------------------    |
+| GET               | /basket/{userName}            | Get basket by username        |
+| Post              | /basket/{userName}            | Store basket(insert & update) |
+| Delete            | /basket/{userName}            | Delete basket by username     |
+| POST              | /basket/checkout              | Checkout basket               |
 
 
 ## Run With Docker
