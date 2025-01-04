@@ -13,14 +13,14 @@ namespace Basket.API.Basket.StoreBasket
             {
                 var command = request.Adapt<StoreBasketCommand>();
 
-                var result = sender.Send(command);
+                var result = await sender.Send(command);
 
                 var response = result.Adapt<StoreBasketResponse>();
 
                 return Results.Created($"/basket/{response.UserName}",response);
             })
                 .WithName("StoreBasket")
-                .Produces<GetBasketResponse>(StatusCodes.Status201Created)
+                .Produces<StoreBasketResponse>(StatusCodes.Status201Created)
                 .ProducesProblem(StatusCodes.Status400BadRequest)
                 .WithSummary("Store Basket")
                 .WithDescription("Store Basket");
