@@ -17,7 +17,7 @@ Http - Https
 1. Manage NuGet packages version control
 
 
-## Rest API Endpoints
+## REST API Endpoints
 
 #### 1.Catalog Microservices
 
