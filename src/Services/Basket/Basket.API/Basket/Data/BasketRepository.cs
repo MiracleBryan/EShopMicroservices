@@ -10,7 +10,7 @@
             return true;
         }
 
-        public async Task<ShoppingCart> GetBasket(SecureString userName, CancellationToken cancellationToken = default)
+        public async Task<ShoppingCart> GetBasket(string userName, CancellationToken cancellationToken = default)
         {
             var basket = await session.LoadAsync<ShoppingCart>(userName, cancellationToken);
 
